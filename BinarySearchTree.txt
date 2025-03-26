@@ -1,0 +1,26 @@
+#Building BST from preorder:
+1. iteratively accessing each element in array and calling bst functiob to build the tree -> o(n^2) time complexity.
+2. taking a method bst that takes array,lower,upper,index and building directly. ->O(n) time complexity.
+    Weuse the concept called range INT_MIN TO INT_MAX first and eventually that will change to each node accordingly to lower,root.data when moves towards left
+    and root.data, upper when move towards right.
+import java.util.concurrent.atomic.AtomicInteger;
+
+class Solution {
+    public TreeNode bst(int[] preorder, AtomicInteger index, int lower, int upper) {
+        if (index.get() == preorder.length || preorder[index.get()] < lower || preorder[index.get()] > upper) {
+            return null;
+        }
+
+        int val = preorder[index.getAndIncrement()];
+        TreeNode root = new TreeNode(val);
+        root.left = bst(preorder, index, lower, val);
+        root.right = bst(preorder, index, val, upper);
+        
+        return root;
+    }
+
+    public TreeNode bstFromPreorder(int[] preorder) {
+        AtomicInteger index = new AtomicInteger(0);
+        return bst(preorder, index, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+}
