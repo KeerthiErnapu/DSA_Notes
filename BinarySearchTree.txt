@@ -24,3 +24,5 @@ class Solution {
         return bst(preorder, index, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 }
+
+#BST Inorder traversal is always in sorted order .
