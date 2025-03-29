@@ -1,0 +1,11 @@
+Graphs:
+It can be accessed using two ways: 1. DFS, 2. BFS
+#DFS: It is about recursively visisting the paths if they are unvisited.
+#BFS: It is about using a queue and visiting a node and all its neighbours before moving to other node.
+ Problems:
+1. Detect a cycle using DFS-> Concept of parent and neighbour node if it the currently visited is visited and it is not parent then it has a loop.
+
+Algorithms:1. Khans Algorithm(BFS) for topological sort->  1.First find indegree of all vertices and then
+                                                           2. push zero indegree vertices to queue.
+                                                           3. Until the queue is empty take front vertex in queue  add it to answer and decrese all of its neighbour vertices indegree by 1.
+                                                           4. In this process any of the vertex indegree is zero add it to queue.
